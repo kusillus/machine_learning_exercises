@@ -1,4 +1,4 @@
-var medidas = [1,5,8,5,8,1,5,8,5,9,1,5,5,9,5,9,8,3,5,5,8,4,8,8,1,8,2,3,8,2,2,2,2,2,2,2,2]
+var medidas = [1,5,8,5,8,1,5,8,5,9,1,5,5,9,5,9,8,3,5,5,8,4,8,8,1,8,2,3,8,2,2,2,2,2,2,2]
 var sum = 0
 var moda = 0
 
@@ -12,6 +12,8 @@ function calcular_media (values, sum, mod) {
 	console.log('Media: ' + sum/values.length)
 	var max_match = 0
 	var moda_value = []
+	var middle_point = Math.round(medidas.length / 2)
+	var mediana = medidas.lentth
 	// calculamos el valor maximo de repeticiones de un numero.
 	for (var i = values.length - 1; i >= 0; i--) {
 		var match = repetition(values, values[i])		
@@ -26,7 +28,19 @@ function calcular_media (values, sum, mod) {
 			setNewValues(moda_value, values[i])
 		}
 	}
-	resultProccess(max_match, moda_value)	
+	resultProccess(max_match, moda_value)
+
+	proccessMediana(medidas, middle_point)
+
+}
+function proccessMediana(arr, middle) {
+	console.log('punto medio: ' + middle)
+	if(arr.length % 2 == 0) {
+		var result_mediana = arr[middle] + arr[middle + 1]
+		console.log('valor mediana es: ' + result_mediana / 2)
+	} else {
+		console.log('valor de la mediana es: ' + arr[middle])
+	}
 }
 
 function repetition(med, val) {
